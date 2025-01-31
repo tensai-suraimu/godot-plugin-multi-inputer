@@ -1,0 +1,8 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+/.dist/
+!/.dist/gdignore
+
+/addons/multi_inputer/example/slime/raw/frames/

@@ -1,0 +1,296 @@
+[gd_scene load_steps=16 format=3 uid="uid://bcoxvad3ghjsb"]
+
+[ext_resource type="Script" path="res://addons/multi_inputer/example/slime/slime.gd" id="1_oel0v"]
+[ext_resource type="Script" path="res://addons/multi_inputer/script/ctl/act_2d.gd" id="2_kwkuh"]
+[ext_resource type="Texture2D" uid="uid://c4it4t6kst8ox" path="res://addons/multi_inputer/example/slime/slime_frames.png" id="3_2tlys"]
+[ext_resource type="Script" path="res://addons/multi_inputer/example/slime/ghosts.gd" id="3_mp4a5"]
+[ext_resource type="Texture2D" uid="uid://mf0yqxamnhr6" path="res://addons/multi_inputer/example/slime/2d_lights_and_shadows_neutral_point_light.webp" id="5_gecg0"]
+
+[sub_resource type="Resource" id="Resource_cf5sc"]
+script = ExtResource("2_kwkuh")
+joypad_id = -1
+move_speed = 300.0
+move_slide = 0.0
+gravity = null
+velocity_scale = Vector2(1, 1)
+jump_speeds = Array[float]([400.0, 300.0])
+dive_speed = 1000.0
+glide_speed = 100.0
+wall_glide = 50.0
+wall_speed = 300.0
+wall_repel = 150.0
+squat_dash = 150.0
+squat_speed = 400.0
+jumping = 0
+dash_mode = 0
+direction = 1.0
+move_up = "move_up"
+move_down = "move_down"
+move_left = "move_left"
+move_right = "move_right"
+move_slow = "move_slow"
+act_jump = "act_jump"
+
+[sub_resource type="Animation" id="Animation_aomxi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nau6t"]
+resource_name = "fall"
+length = 0.500008
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [54, 55, 56, 57, 58, 59]
+}
+
+[sub_resource type="Animation" id="Animation_23322"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667, 1, 1.08333, 1.16667, 1.25, 1.33333, 1.41667, 1.5, 1.58333, 1.66667, 1.75, 1.83333, 1.91667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
+}
+
+[sub_resource type="Animation" id="Animation_liss5"]
+resource_name = "jump"
+length = 0.500017
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52, 53]
+}
+
+[sub_resource type="Animation" id="Animation_bdnq5"]
+resource_name = "move"
+loop_mode = 1
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333, 0.5, 0.541667, 0.583333, 0.625, 0.666667, 0.708333, 0.75, 0.791667, 0.833333, 0.875, 0.916667, 0.958333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_0ae5c"]
+resource_name = "squat"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pigbv"]
+_data = {
+"RESET": SubResource("Animation_aomxi"),
+"fall": SubResource("Animation_nau6t"),
+"idle": SubResource("Animation_23322"),
+"jump": SubResource("Animation_liss5"),
+"move": SubResource("Animation_bdnq5"),
+"squat": SubResource("Animation_0ae5c")
+}
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wgacc"]
+properties/0/path = NodePath(".:sync_position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:sync_velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:sync_flip_h")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+properties/3/path = NodePath(".:sync_jumping")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6ugd0"]
+polygon = PackedVector2Array(-15, -12, -6, -18, 6, -18, 15, -12, 24, 16, 12, 20, -12, 20, -24, 16)
+
+[node name="SlimeCharacter" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_oel0v")
+controller = SubResource("Resource_cf5sc")
+
+[node name="Ghosts" type="Node2D" parent="." node_paths=PackedStringArray("sprite")]
+visible = false
+script = ExtResource("3_mp4a5")
+size = 8
+sprite = NodePath("../Sprite2D")
+
+[node name="Ghost#0" type="Sprite2D" parent="Ghosts"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2tlys")
+hframes = 4
+vframes = 15
+
+[node name="Ghost#1" type="Sprite2D" parent="Ghosts"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2tlys")
+hframes = 4
+vframes = 15
+
+[node name="Ghost#2" type="Sprite2D" parent="Ghosts"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2tlys")
+hframes = 4
+vframes = 15
+
+[node name="Ghost#3" type="Sprite2D" parent="Ghosts"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2tlys")
+hframes = 4
+vframes = 15
+
+[node name="Ghost#4" type="Sprite2D" parent="Ghosts"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2tlys")
+hframes = 4
+vframes = 15
+
+[node name="Ghost#5" type="Sprite2D" parent="Ghosts"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2tlys")
+hframes = 4
+vframes = 15
+
+[node name="Ghost#6" type="Sprite2D" parent="Ghosts"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2tlys")
+hframes = 4
+vframes = 15
+
+[node name="Ghost#7" type="Sprite2D" parent="Ghosts"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2tlys")
+hframes = 4
+vframes = 15
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
+use_parent_material = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2tlys")
+hframes = 4
+vframes = 15
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-15, -12, -6, -18, 6, -18, 15, -12, 24, 16, -24, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_pigbv")
+}
+autoplay = "idle"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_wgacc")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 3
+enabled = false
+color = Color(0.5, 1, 1, 1)
+range_item_cull_mask = 3
+texture = ExtResource("5_gecg0")
+height = 64.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="PointLight2D"]
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_6ugd0")

@@ -1,0 +1,260 @@
+[gd_scene load_steps=6 format=3 uid="uid://brrrmxvas6x0p"]
+
+[ext_resource type="Script" path="res://addons/multi_inputer/example/demo.gd" id="1_ucytg"]
+[ext_resource type="PackedScene" uid="uid://bcoxvad3ghjsb" path="res://addons/multi_inputer/example/slime/slime.tscn" id="2_jhb17"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wt5k0"]
+a = Vector2(-4096, 64)
+b = Vector2(4096, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldoci"]
+size = Vector2(128, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbj1q"]
+size = Vector2(16, 256)
+
+[node name="ActionGallery" type="Node2D"]
+script = ExtResource("1_ucytg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_wt5k0")
+
+[node name="Ruler" type="ColorRect" parent="StaticBody2D"]
+offset_left = -1024.0
+offset_top = 64.0
+offset_right = 1024.0
+offset_bottom = 128.0
+color = Color(0.12549, 0.0784314, 0, 1)
+
+[node name="Node2D" type="Node2D" parent="StaticBody2D"]
+modulate = Color(1, 1, 1, 0.247059)
+
+[node name="Line1" type="Line2D" parent="StaticBody2D/Node2D"]
+points = PackedVector2Array(-960, -192, 960, -192)
+width = 3.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Rule-15" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-960, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule-14" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-896, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule-13" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-832, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule-12" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-768, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="Rule-11" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-704, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule-10" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-640, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule-09" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-576, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule-08" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-512, 1)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="Rule-07" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-448, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule-06" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-384, 1)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule-05" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-320, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule-04" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-256, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="Rule-03" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-192, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule-02" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-128, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule-01" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(-64, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule0" type="Line2D" parent="StaticBody2D/Node2D"]
+points = PackedVector2Array(0, -640, 0, 128)
+width = 3.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="Rule+01" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(64, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule+02" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(128, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule+03" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(192, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule+04" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(256, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="Rule+05" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(320, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule+06" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(384, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule+07" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(448, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule+08" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(512, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="Rule+09" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(576, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule+10" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(640, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule+11" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(704, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule+12" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(768, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="Rule+13" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(832, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule+14" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(896, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="Rule+15" type="Line2D" parent="StaticBody2D/Node2D"]
+position = Vector2(960, 0)
+points = PackedVector2Array(0, 64, 0, 128)
+width = 2.0
+
+[node name="SlimeCharacter" parent="." instance=ExtResource("2_jhb17")]
+position = Vector2(0, 40)
+
+[node name="Camera2D" type="Camera2D" parent="SlimeCharacter"]
+position = Vector2(0, -40)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="HBoxContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 0.95
+offset_left = -24.0
+offset_top = -25.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CloseButton" type="Button" parent="HUD/Control/Buttons"]
+layout_mode = 2
+text = "Close"
+
+[node name="ActionStage" type="Node2D" parent="."]
+
+[node name="AdvJump" type="StaticBody2D" parent="ActionStage"]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionStage/AdvJump"]
+shape = SubResource("RectangleShape2D_ldoci")
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="ActionStage/AdvJump"]
+offset_left = -64.0
+offset_top = -8.0
+offset_right = 64.0
+offset_bottom = 8.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="WallJump" type="StaticBody2D" parent="ActionStage"]
+position = Vector2(136, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionStage/WallJump"]
+shape = SubResource("RectangleShape2D_vbj1q")
+
+[node name="ColorRect" type="ColorRect" parent="ActionStage/WallJump"]
+offset_left = -8.0
+offset_top = -128.0
+offset_right = 8.0
+offset_bottom = 128.0
+color = Color(0.2, 0.2, 0.2, 1)
